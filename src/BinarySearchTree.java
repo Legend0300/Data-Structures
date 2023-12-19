@@ -1,36 +1,35 @@
-import java.util.Comparator;
+public class BinarySearchTree<T extends Comparable<T>>{
 
-public class BinarySearchTree<T>{
-
-    Node<T> insert(Node<T> rootNode, T data, Comparator<T> comparator) {
+    Node<T> insert(Node<T> rootNode, T data) {
         if (rootNode == null) {
             Node<T> node = new Node<T>(data);
             return node;
-        } else if (comparator.compare(rootNode.data, data) > 0) {
-            rootNode.right = insert(rootNode.right, data, comparator);
+        }
+        else if (rootNode.data.compareTo(data) > 0) {
+            rootNode.right = insert(rootNode.right, data);
         } else {
-            rootNode.left = insert(rootNode.left, data, comparator);
+            rootNode.left = insert(rootNode.left, data);
         }
         return rootNode;
     }
 
 
-    void search(Node<T> rootNode , T data , Comparator<T> comparator){
+    void search(Node<T> rootNode , T data){
         if(rootNode == null)
         {
             System.out.println("not found");
         }
-        else if(comparator.compare(rootNode.data, data) == 0){
+        else if(rootNode.data.compareTo(data) == 0){
             System.out.println("root node found");
         }
         else{
-            if(comparator.compare(rootNode.data, data) > 0)
+            if(rootNode.data.compareTo(data) > 0)
             {  
-                search(rootNode.right, data, comparator);
+                search(rootNode.right, data);
             }
             else
             {
-                search(rootNode.left, data, comparator);
+                search(rootNode.left, data);
             }
         }
     }
