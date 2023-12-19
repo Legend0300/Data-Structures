@@ -20,7 +20,7 @@ public class BinarySearchTree<T>{
         {
             System.out.println("not found");
         }
-        else if(rootNode.data == data){
+        else if(comparator.compare(rootNode.data, data) == 0){
             System.out.println("root node found");
         }
         else{
@@ -33,6 +33,50 @@ public class BinarySearchTree<T>{
                 search(rootNode.left, data, comparator);
             }
         }
+    }
+
+
+    Node<T> findMin(Node<T> rootNode)
+    {
+        while (rootNode.left != null) {
+            rootNode = rootNode.left;
+        }
+        return rootNode;
+    }
+
+    Node<T> findMax(Node<T> rootNode)
+    {
+        while (rootNode.right != null) {
+            rootNode = rootNode.right;
+        }
+        return rootNode;
+    }
+
+
+    int FindHeight(Node<T> rootNode) {
+
+        if(rootNode == null)
+        {
+            return -1;
+        }
+
+        int leftHeight = FindHeight(rootNode.left);
+        int rightHeight = FindHeight(rootNode.right);
+
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+
+    int FindNodes(Node<T> rootNode) {
+
+        if(rootNode == null)
+        {
+            return 0;
+        }
+
+        int leftNodes = FindNodes(rootNode.left);
+        int rightNodes = FindNodes(rootNode.right);
+
+        return Math.max(leftNodes, rightNodes) + 1;
     }
 
 }
