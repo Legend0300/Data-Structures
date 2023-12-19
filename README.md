@@ -28,6 +28,9 @@ This repository serves as a source file for various data structures and algorith
 - [LinkedList Implementation](src/LinkedList.java)
   - Simple implementation of a singly linked list with various operations.
 
+- [Binary Search Tree Implementation](src/BinarySearchTree.java)
+  - Implementation of a Binary Search Tree with various operations.
+
 ## Contribution
 
 If you have suggestions for improvements, bug reports, or would like to contribute additional implementations, feel free
