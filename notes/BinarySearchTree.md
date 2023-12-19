@@ -1,49 +1,60 @@
 # Binary Search Tree Implementation in Java
 
-This Java program provides a simple implementation of a Binary Search Tree (BST) along with various operations such as insertion, searching, finding the maximum and minimum values, calculating the height, and counting nodes.
+This repository contains a generic implementation of a Binary Search Tree (BST) in Java. The BST is designed to work with any type that extends `Comparable`. The implementation includes methods for insertion, searching, finding the minimum and maximum values, calculating the height of the tree, and counting the number of nodes.
 
-## Class Structure
+## Usage
 
-### `BinarySearchTree<T>`
+To use the Binary Search Tree, follow these steps:
 
-#### Methods:
+1. **Insertion:**
+    ```java
+    BinarySearchTree<T> bst = new BinarySearchTree<>();
+    Node<T> rootNode = null;
+    rootNode = bst.insert(rootNode, data);
+    ```
 
-- `Node<T> insert(Node<T> rootNode, T data, Comparator<T> comparator)`: Inserts a new node with the given data into the BST.
-- `void search(Node<T> rootNode, T data, Comparator<T> comparator)`: Searches for a node with the specified data in the BST.
-- `Node<T> findMin(Node<T> rootNode)`: Finds the node with the minimum value in the BST.
-- `Node<T> findMax(Node<T> rootNode)`: Finds the node with the maximum value in the BST.
-- `int findHeight(Node<T> rootNode)`: Calculates the height of the BST.
-- `int findNodes(Node<T> rootNode)`: Counts the number of nodes in the BST.
+2. **Search:**
+    ```java
+    bst.search(rootNode, data);
+    ```
 
-### `Node<T>`
+3. **Find Minimum:**
+    ```java
+    Node<T> minNode = bst.findMin(rootNode);
+    ```
 
-A simple node class representing an element in the BST.
+4. **Find Maximum:**
+    ```java
+    Node<T> maxNode = bst.findMax(rootNode);
+    ```
 
-#### Fields:
+5. **Calculate Height:**
+    ```java
+    int height = bst.FindHeight(rootNode);
+    ```
 
-- `Node<T> left`: Reference to the left child node.
-- `Node<T> right`: Reference to the right child node.
-- `T data`: Data stored in the node.
+6. **Count Nodes:**
+    ```java
+    int nodesCount = bst.FindNodes(rootNode);
+    ```
 
-## Example Usage:
+## Example
 
 ```java
 BinarySearchTree<Integer> bst = new BinarySearchTree<>();
-Comparator<Integer> comparator = Comparator.naturalOrder();
-
 Node<Integer> rootNode = null;
-rootNode = bst.insert(rootNode, 50, comparator);
-rootNode = bst.insert(rootNode, 30, comparator);
-rootNode = bst.insert(rootNode, 70, comparator);
+rootNode = bst.insert(rootNode, 50);
+bst.insert(rootNode, 30);
+bst.insert(rootNode, 70);
 
-bst.search(rootNode, 30, comparator); // Output: root node found
-bst.search(rootNode, 40, comparator); // Output: not found
+bst.search(rootNode, 30); // Output: root node found
+bst.search(rootNode, 40); // Output: not found
 
 Node<Integer> minNode = bst.findMin(rootNode);
 Node<Integer> maxNode = bst.findMax(rootNode);
 
-int height = bst.findHeight(rootNode);
-int nodesCount = bst.findNodes(rootNode);
+int height = bst.FindHeight(rootNode);
+int nodesCount = bst.FindNodes(rootNode);
 
 System.out.println("Minimum Value: " + minNode.data);
 System.out.println("Maximum Value: " + maxNode.data);
