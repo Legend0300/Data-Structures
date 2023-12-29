@@ -42,15 +42,15 @@ public class AVLTree {
         else{
             if(root.left == null && root.right == null)
             {
-                root = null;
+                return null;
             }
             else if(root.left == null && root.right != null)
             {
-                root = root.right;
+                return root.right;
             }
             else if(root.right == null && root.left != null)
             {
-                root = root.left;
+                return root.left;
             }
             else{
                 Node inOrder = FindMin(root.right);
